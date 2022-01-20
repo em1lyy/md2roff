@@ -17,12 +17,12 @@ md2roff.1.gz: md2roff.md md2roff
 	gzip -f md2roff.1
 
 install: md2roff md2roff.1.gz
-	install -m 0755 -s md2roff $(PREFIX)/bin/
-	install -m 0644 md2roff.1.gz $(MANDIR)/man1/
+	install -m 0755 -s md2roff $(DESTDIR)$(PREFIX)/bin/
+	install -m 0644 md2roff.1.gz $(DESTDIR)$(MANDIR)/man1/
 
 uninstall:
-	-@rm $(PREFIX)/bin/md2roff
-	-@rm $(MANDIR)/man1/md2roff.1.gz
+	-@rm $(DESTDIR)$(PREFIX)/bin/md2roff
+	-@rm $(DESTDIR)$(MANDIR)/man1/md2roff.1.gz
 
 clean:
 	-@rm *.o md2roff md2roff.1*
